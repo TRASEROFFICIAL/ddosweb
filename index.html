@@ -3,32 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Save File</title>
+    <title>Auto Create File</title>
 </head>
 <body>
 
 <script>
-    async function saveFile() {
-        try {
-            
-            const fileHandle = await window.showSaveFilePicker({
-                suggestedName: "file_otomatis.txt",
-                types: [{
-                    description: "Text Files",
-                    accept: { "text/plain": [".txt"] }
-                }]
-            });
+    function createAndDownloadFile() {
+        const text = "Ini adalah file yang dibuat otomatis.";
+        const blob = new Blob([text], { type: "text/plain" });
+        const link = document.createElement("a");
 
-            const writable = await fileHandle.createWritable();
-            await writable.write("Ini adalah file yang dibuat otomatis.");
-            await writable.close();
-            alert("File berhasil disimpan!");
-        } catch (err) {
-            console.error("Gagal menyimpan file:", err);
-        }
+        link.href = URL.createObjectURL(blob);
+        link.download = "file_otomatis.txt";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
-    window.onload = saveFile;
+    // Panggil fungsi saat halaman dimuat
+    window.onload = createAndDownloadFile;
 </script>
 
 </body>
