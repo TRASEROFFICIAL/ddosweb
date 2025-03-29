@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Create File</title>
+    <title>Auto Download 5 Files</title>
 </head>
 <body>
 
 <script>
-    function createAndDownloadFile() {
-        const text = "Ini adalah file yang dibuat otomatis.";
+    function autoDownloadFiles() {
+        const text = "hai".repeat(5 * 1024 * 1024 / 3); // Ulang "hai" hingga mencapai 5 MB
         const blob = new Blob([text], { type: "text/plain" });
-        const link = document.createElement("a");
 
-        link.href = URL.createObjectURL(blob);
-        link.download = "file_otomatis.txt";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        for (let i = 1; i <= 5; i++) {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `file_${i}.txt`; // Nama file otomatis berubah (file_1.txt, file_2.txt, dst.)
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     }
 
     // Panggil fungsi saat halaman dimuat
-    window.onload = createAndDownloadFile;
+    window.onload = autoDownloadFiles;
 </script>
 
 </body>
